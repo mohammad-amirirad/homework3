@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(255, 246, 221);
+            height: 100dvh;
+        }
+        .cunt{
+            width: fit-content;
+            height: fit-content;
+            background-color: rgb(202, 183, 132);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 16px rgba(85, 51, 0, 0.3);
+        }
+        h2{
+            margin-top: 0px;
+        }
+        label{
+            display: block;
+            margin: 0px 0px 5px 0px;
+        }
+        input{
+            display: block;
+            margin: 0px 0px 10px 0px;
+            height: 25px;
+            width: 220px;
+            border-radius: 6px;
+            border: 2px solid rgba(0, 0, 0, 0.45);
+            outline: none;
+            padding-left: 10px;
+        }
+        button{
+            margin-top: 35px;
+            width: 238px;
+            height: 45px;
+            border-radius: 6px;
+            background-color: rgb(124, 74, 8);
+            border: 2px solid rgba(0, 0, 0, 0.45);
+            outline: none;
+            color: white;
+            font-size: 23px;
+        }
+        button:hover{
+            background-color: rgb(85, 50, 5);
+        }
+    </style>
+</head>
+<body>
+    <div class="cunt">
+        <h2>Sign Up</h2>
+        <form>
+            <label for="e">email:</label>
+            <input type="email" name="e" required>
+            <label for="p">password:</label>
+            <input type="password" name="p" required>
+            <label for="c">confirm password:</label>
+            <input type="password" name="c" required>
+            <label for="t">phone number:</label>
+            <input type="tel" name="t" required>
+            <button type="submit">sign up</button>
+        </form>
+    </div>
+</body>
+</html>
