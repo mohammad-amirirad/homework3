@@ -23,9 +23,13 @@
             border-radius: 10px;
             background-color: rgb(248, 248, 248);
             box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation-name: load2;
+            animation-duration: 0.4s;
         }
         h2{
             margin-top: 0px;
+            text-align: center;
         }
         label{
             display: block;
@@ -75,23 +79,92 @@
         .flex{
             display: block;
         }
+        .hidden{
+            display: none;
+        }
+        .dis{
+            background-color: grey;
+            cursor: not-allowed;
+        }
+        .dis:hover{
+            background-color: darkgrey;
+        }
+        .rr{
+            color: red;
+        }
+        .cunt2{
+            width: 100%;
+            animation-name: load;
+            animation-duration: 0.4s;
+        }
+        @keyframes load {
+            0%{
+                margin-left: 112%;
+                opacity: 0;
+            }
+            100%{
+                margin-left: 0;
+                opacity: 1;
+            }
+        }
+        @keyframes load2 {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="cunt">
-        <h2>Sign Up</h2>
-        <form>
+        <div class="cunt2">
+        <h2>Create an Account</h2>
+        <form action="#">
             <label for="e">Email:</label>
-            <input type="email" name="e" required placeholder="example@email.com">
+            <input id="e" type="email" name="e" required placeholder="example@email.com">
+            <label for="t">Name:</label>
+            <input id="t" type="text" name="t" required placeholder="John Doe">
             <label for="p">Password:</label>
-            <input type="password" name="p" required placeholder="At least 6 characters">
+            <input id="p" type="password" name="p" minlength="6" required placeholder="At least 6 characters">
             <label for="c">Confirm Password:</label>
-            <input type="password" name="c" required placeholder="Re-enter password">
-            <label for="t">Phone number:</label>
-            <input type="tel" name="t" required placeholder="09123456789">
+            <input id="r" type="password" name="c" minlength="6" required placeholder="Re-enter password">
             <div class="flex"><span>By continuing you agree to our <span class="pp">Terms and conditions</span></span></div>
-            <button type="submit">Create Account</button>
+            <div id="fl" class="flex hidden"><span class="rr">Passwords do not match</span></div>
+            <button id="b" type="submit" class="dis" disabled>Create Account</button>
         </form>
+        </div>
     </div>
+    <script>
+    function checkkk() {
+        const e = document.getElementById('e').value.trim();
+        const p = document.getElementById('p').value.trim();
+        const r = document.getElementById('r').value.trim();
+        const t = document.getElementById('t').value.trim();
+        const b = document.getElementById('b');
+
+        if (e && p && r && t) {
+            b.removeAttribute("disabled");
+            b.classList.remove("dis");
+            if (p == r){
+                document.getElementById('fl').classList.add("hidden")
+            }
+            else{
+                document.getElementById('fl').classList.remove("hidden")
+            }
+        } 
+    else{
+            b.setAttribute("disabled", true);
+            b.classList.add("dis");
+            }
+    }
+    const inputs = ['e', 'p', 'r', 't'];
+    inputs.forEach(id => {
+        document.getElementById(id).addEventListener("input", checkkk);
+
+    });
+
+    </script>
 </body>
 </html>
