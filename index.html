@@ -22,7 +22,7 @@
             padding: 30px;
             border-radius: 10px;
             background-color: rgb(248, 248, 248);
-            box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             animation-name: load2;
             animation-duration: 0.4s;
@@ -34,6 +34,7 @@
         label{
             display: block;
             margin: 0px 0px 5px 0px;
+            color: rgba(0, 0, 0, 0.75);
         }
         input{
             display: block;
@@ -78,48 +79,12 @@
         }
         .flex{
             display: block;
-        }
-        .hidden{
-            display: none;
-        }
-        .dis{
-            background-color: grey;
-            cursor: not-allowed;
-        }
-        .dis:hover{
-            background-color: darkgrey;
-        }
-        .rr{
-            color: red;
-        }
-        .cunt2{
-            width: 100%;
-            animation-name: load;
-            animation-duration: 0.4s;
-        }
-        @keyframes load {
-            0%{
-                margin-left: 112%;
-                opacity: 0;
-            }
-            100%{
-                margin-left: 0;
-                opacity: 1;
-            }
-        }
-        @keyframes load2 {
-            from{
-                opacity: 0;
-            }
-            to{
-                opacity: 1;
-            }
+            color: rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
 <body>
     <div class="cunt">
-        <div class="cunt2">
         <h2>Create an Account</h2>
         <form action="#">
             <label for="e">Email:</label>
@@ -131,40 +96,8 @@
             <label for="c">Confirm Password:</label>
             <input id="r" type="password" name="c" minlength="6" required placeholder="Re-enter password">
             <div class="flex"><span>By continuing you agree to our <span class="pp">Terms and conditions</span></span></div>
-            <div id="fl" class="flex hidden"><span class="rr">Passwords do not match</span></div>
             <button id="b" type="submit" class="dis" disabled>Create Account</button>
         </form>
-        </div>
     </div>
-    <script>
-    function checkkk() {
-        const e = document.getElementById('e').value.trim();
-        const p = document.getElementById('p').value.trim();
-        const r = document.getElementById('r').value.trim();
-        const t = document.getElementById('t').value.trim();
-        const b = document.getElementById('b');
-
-        if (e && p && r && t) {
-            b.removeAttribute("disabled");
-            b.classList.remove("dis");
-            if (p == r){
-                document.getElementById('fl').classList.add("hidden")
-            }
-            else{
-                document.getElementById('fl').classList.remove("hidden")
-            }
-        } 
-    else{
-            b.setAttribute("disabled", true);
-            b.classList.add("dis");
-            }
-    }
-    const inputs = ['e', 'p', 'r', 't'];
-    inputs.forEach(id => {
-        document.getElementById(id).addEventListener("input", checkkk);
-
-    });
-
-    </script>
 </body>
 </html>
